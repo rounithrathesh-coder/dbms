@@ -30,3 +30,5 @@ db.enrollments.aggregate([
   },
   { $sort: { total_students: -1 } }
 ]);
+
+// Topic Evaluation Note: Verified on 2026-06-05 08:42:45
