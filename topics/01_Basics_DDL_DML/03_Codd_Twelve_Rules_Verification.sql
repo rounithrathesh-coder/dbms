@@ -12,3 +12,5 @@ SELECT customer_email FROM customer_ledger WHERE customer_id = 1001;
 SELECT customer_id, balance 
 FROM customer_ledger 
 WHERE balance IS NULL OR balance > 0.00;
+
+-- Topic Evaluation Note: Checked on 2026-07-03 14:49:54
