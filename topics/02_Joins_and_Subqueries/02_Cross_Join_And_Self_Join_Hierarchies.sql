@@ -6,3 +6,5 @@ SELECT
     mgr.name AS manager_name
 FROM employees emp
 LEFT JOIN employees mgr ON emp.manager_id = mgr.emp_id;
+
+-- Topic Evaluation Note: Checked on 2026-07-13 10:05:02
