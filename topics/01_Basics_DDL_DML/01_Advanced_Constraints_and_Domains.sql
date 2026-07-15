@@ -12,3 +12,5 @@ CREATE TABLE verified_accounts (
     CONSTRAINT chk_positive_balance CHECK (balance >= 0.00),
     CONSTRAINT chk_status_enum CHECK (status IN ('ACTIVE', 'SUSPENDED', 'CLOSED'))
 );
+
+-- Revision Note: Checked on 2026-07-15 09:11:00
