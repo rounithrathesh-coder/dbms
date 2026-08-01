@@ -16,3 +16,5 @@
    - Writes Compensation Log Records (CLRs) for each undone action so undo is never repeated if another crash occurs.
 
 <!-- Section Revision: 2026-07-31 17:33:41 -->
+
+<!-- Section Revision: 2026-08-01 17:07:17 -->
