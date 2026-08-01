@@ -10,3 +10,5 @@ UPDATE accounts SET balance = balance - 250 WHERE account_id = 101;
 SELECT balance FROM accounts WHERE account_id = 202 FOR UPDATE;
 UPDATE accounts SET balance = balance + 250 WHERE account_id = 202;
 COMMIT;
+
+-- Revision Note: Checked on 2026-08-01 14:40:51
