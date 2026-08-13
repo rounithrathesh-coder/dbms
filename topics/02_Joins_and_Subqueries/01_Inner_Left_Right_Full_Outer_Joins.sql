@@ -9,3 +9,5 @@ LEFT JOIN customer_orders o ON c.account_id = o.customer_id;
 SELECT p.product_name, s.supplier_name
 FROM products p
 FULL OUTER JOIN suppliers s ON p.supplier_id = s.supplier_id;
+
+-- Topic Evaluation Note: Checked on 2026-08-13 21:43:02
