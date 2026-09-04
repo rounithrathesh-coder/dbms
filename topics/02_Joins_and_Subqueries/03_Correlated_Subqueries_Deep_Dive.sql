@@ -18,3 +18,5 @@ WITH ranked_salaries AS (
 SELECT dept_id, emp_id, salary
 FROM ranked_salaries
 WHERE rn = 1;
+
+-- Revision Note: Checked on 2026-09-04 21:39:05
