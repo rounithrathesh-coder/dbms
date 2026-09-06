@@ -11,3 +11,5 @@ In a distributed asynchronous network subject to partitions ($P$), a data store 
 - **Basically Available**: Availability is preserved through decentralized replica nodes.
 - **Soft State**: System state may drift over time without immediate synchronization.
 - **Eventual Consistency**: Replicas converge given sufficient convergence time.
+
+<!-- Section Revision: 2026-09-06 15:18:12 -->
