@@ -14,3 +14,5 @@ db.students.find(
   { major: "Computer Science", gpa: { $gte: 3.5 } },
   { name: 1, gpa: 1, _id: 0 }
 ).sort({ gpa: -1 });
+
+// Revision Note: Verified on 2026-09-20 14:26:42
