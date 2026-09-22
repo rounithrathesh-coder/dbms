@@ -16,3 +16,5 @@ SELECT * FROM employees e JOIN departments d ON e.dept_id = d.id;
 SELECT id FROM table_r EXCEPT SELECT id FROM table_s;
 
 -- Revision Note: Checked on 2026-09-14 17:33:41
+
+-- Revision Note: Checked on 2026-09-22 10:35:45
