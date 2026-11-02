@@ -1,0 +1,13 @@
+# OS metadata
+.DS_Store
+Thumbs.db
+
+# Database dump/log files
+*.log
+*.tmp
+*.dump
+*.bak
+
+# IDE files
+.idea/
+.vscode/

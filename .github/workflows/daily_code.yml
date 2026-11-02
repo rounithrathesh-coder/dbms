@@ -1,0 +1,39 @@
+name: Daily DBMS Code Push
+
+on:
+  schedule:
+    # Runs everyday at 04:00 UTC (09:30 AM IST)
+    - cron: '0 4 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  daily-code-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Generate daily DBMS code
+        run: python3 .github/scripts/daily_push.py
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "rounithrathesh-coder"
+          git config --global user.email "rounithrathesh@gmail.com"
+          git add .
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "feat(daily): automated DBMS code push for $(date +'%Y-%m-%d')"
+            git push origin main
+          fi
