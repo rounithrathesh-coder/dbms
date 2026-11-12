@@ -47,6 +47,7 @@ sqlite3 :memory: < daily/Day001_Window_Functions_And_CTEs.sql
 | [`Day016_Materialized_Views_Aggregation.sql`](daily/Day016_Materialized_Views_Aggregation.sql) | Materialized Views, Summary Rollups & Concurrent Refresh Strategies | 2026-11-11 | `Verified` |
 | [`Day017_Full_Text_Search_Indexing.sql`](daily/Day017_Full_Text_Search_Indexing.sql) | Full-Text Search & Inverted Indexes | 2026-11-11 | `Verified` |
 | [`Day018_Temporal_Tables_And_Point_In_Time_Queries.sql`](daily/Day018_Temporal_Tables_And_Point_In_Time_Queries.sql) | Slowly Changing Dimensions (SCD Type 2) & Temporal Point-in-Time Queries | 2026-11-12 | `Verified` |
+| [`Day019_Change_Data_Capture_Outbox.sql`](daily/Day019_Change_Data_Capture_Outbox.sql) | Distributed Systems - Change Data Capture (CDC) & Transactional Outbox Pattern | 2026-11-12 | `Verified` |
 
 ---
 
