@@ -326,13 +326,14 @@ SELECT * FROM inventory;
 
 def generate_dynamic_topic(day_num, date_str):
     topics = [
-        ("Materialized_Views_Aggregation", "Materialized Views & Summary Tables", "Caching", "Precomputing expensive aggregations with manual or scheduled refresh."),
-        ("Full_Text_Search_Indexing", "Full-Text Search & Inverted Indexes", "Search", "Tokenization, stemmers, and inverted index search in relational databases."),
-        ("Partitioning_Strategies", "Horizontal Table Partitioning", "Scalability", "Range, Hash, and List partitioning strategies for multi-million row datasets."),
-        ("Database_Deadlock_Mitigation", "Deadlock Detection & Resolution", "Concurrency", "Lock graph analysis, lock ordering discipline, and retry loops."),
-        ("JSON_Datatypes_And_NoSQL_Queries", "Semi-Structured Data & JSONB Queries", "Modern RDBMS", "Querying, indexing, and updating JSON documents in relational databases.")
+        ("Temporal_Tables_And_Point_In_Time_Queries", "Slowly Changing Dimensions (SCD Type 2) & Temporal Point-in-Time Queries", "Data Warehousing", "Track entity state evolution over time using valid_from/valid_to intervals and time-travel querying."),
+        ("Change_Data_Capture_Outbox", "Distributed Systems - Change Data Capture (CDC) & Transactional Outbox Pattern", "System Architecture", "Dual-write problem mitigation using transactional outbox tables and event streaming."),
+        ("Graph_Traversal_In_RDBMS", "Graph Modeling - Adjacency Lists & Transitive Closure Trees", "Graph Queries", "Hierarchical network traversal, shortest path queries, and cyclic graph protection."),
+        ("Optimistic_Concurrency_Control", "Concurrency - Optimistic Concurrency Control (OCC) with Version Vectors", "Transactions", "Conflict detection without pessimistic locking using monotonic version columns and retry strategies."),
+        ("Geospatial_RTree_Indexing", "Spatial Indexing - R-Trees, Geohashes & Proximity Radius Searches", "Spatial GIS", "Bounding boxes, spatial indexing primitives, and bounding polygon intersection queries."),
+        ("Columnar_Storage_Parquet_Sim", "Storage Engines - Columnar Compression & Vectorized Aggregations", "Analytics Engines", "Comparing row-oriented write throughput against columnar analytical scan compression.")
     ]
-    pick = topics[(day_num - 1) % len(topics)]
+    pick = topics[(day_num - 18) % len(topics)] if day_num >= 18 else topics[0]
     name, title, cat, desc = pick
     filename = f"Day{day_num:03d}_{name}.sql"
     content = f"""-- ============================================================================
@@ -375,7 +376,7 @@ def update_readme(daily_dir, readme_path):
 
         table_rows.append(f"| [`{f}`](daily/{f}) | {topic} | {date_str} | `Verified` |")
 
-    table_md = "\\n".join(table_rows)
+    table_md = "\n".join(table_rows)
 
     readme_content = f"""# 🗄️ Daily Database Management Systems (DBMS) & SQL Mastery
 
