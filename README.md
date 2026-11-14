@@ -50,7 +50,7 @@ sqlite3 :memory: < daily/Day001_Window_Functions_And_CTEs.sql
 | [`Day019_Change_Data_Capture_Outbox.sql`](daily/Day019_Change_Data_Capture_Outbox.sql) | Distributed Systems - Change Data Capture (CDC) & Transactional Outbox Pattern | 2026-11-12 | `Verified` |
 | [`Day020_Graph_Traversal_In_RDBMS.sql`](daily/Day020_Graph_Traversal_In_RDBMS.sql) | Graph Modeling - Adjacency Lists, Shortest Paths & Transitive Closure | 2026-11-13 | `Verified` |
 | [`Day021_Optimistic_Concurrency_Control.sql`](daily/Day021_Optimistic_Concurrency_Control.sql) | Concurrency - Optimistic Concurrency Control (OCC) with Version Vectors | 2026-11-13 | `Verified` |
-| [`Day022_Geospatial_RTree_Indexing.sql`](daily/Day022_Geospatial_RTree_Indexing.sql) | Spatial Indexing - R-Trees, Geohashes & Proximity Radius Searches | 2026-11-14 | `Verified` |
+| [`Day022_Geospatial_RTree_Indexing.sql`](daily/Day022_Geospatial_RTree_Indexing.sql) | Spatial Indexing - R-Trees, Geohashes & Haversine Proximity Searches | 2026-11-14 | `Verified` |
 
 ---
 
