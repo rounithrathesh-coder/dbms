@@ -52,6 +52,7 @@ sqlite3 :memory: < daily/Day001_Window_Functions_And_CTEs.sql
 | [`Day021_Optimistic_Concurrency_Control.sql`](daily/Day021_Optimistic_Concurrency_Control.sql) | Concurrency - Optimistic Concurrency Control (OCC) with Version Vectors | 2026-11-13 | `Verified` |
 | [`Day022_Geospatial_RTree_Indexing.sql`](daily/Day022_Geospatial_RTree_Indexing.sql) | Spatial Indexing - R-Trees, Geohashes & Haversine Proximity Searches | 2026-11-14 | `Verified` |
 | [`Day023_Columnar_Storage_Sim.sql`](daily/Day023_Columnar_Storage_Sim.sql) | Storage Engines - Columnar Compression & Vectorized Aggregations | 2026-11-15 | `Verified` |
+| [`Day024_Temporal_Tables_And_Point_In_Time_Queries.sql`](daily/Day024_Temporal_Tables_And_Point_In_Time_Queries.sql) | Slowly Changing Dimensions (SCD Type 2) & Temporal Point-in-Time Queries | 2026-11-15 | `Verified` |
 
 ---
 
