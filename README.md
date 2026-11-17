@@ -30,13 +30,13 @@ sqlite3 :memory: < daily/Day001_Window_Functions_And_CTEs.sql
 | File | Topic | Date | Status |
 | :--- | :--- | :---: | :---: |
 | [`Day001_Window_Functions_And_CTEs.sql`](daily/Day001_Window_Functions_And_CTEs.sql) | Advanced SQL - Window Functions, CTEs & Hierarchical Queries | 2026-11-02 | `Verified` |
-| [`Day002_Indexing_BTree_And_Explain_Analyze.sql`](daily/Day002_Indexing_BTree_And_Explain_Analyze.sql) | Query Optimization - Indexing Strategies & EXPLAIN Analysis | 2026-11-16 | `Verified` |
-| [`Day003_ACID_Transactions_And_Isolation_Levels.sql`](daily/Day003_ACID_Transactions_And_Isolation_Levels.sql) | Transactions - ACID Properties & Isolation Levels | 2026-11-16 | `Verified` |
-| [`Day004_Database_Normalization_1NF_to_BCNF.sql`](daily/Day004_Database_Normalization_1NF_to_BCNF.sql) | Schema Design - Normalization (1NF -> 2NF -> 3NF -> BCNF) | 2026-11-16 | `Verified` |
-| [`Day005_Triggers_And_Audit_Logging.sql`](daily/Day005_Triggers_And_Audit_Logging.sql) | Data Integrity - Triggers & Audit Trails | 2026-11-16 | `Verified` |
-| [`Day006_Correlated_Subqueries_Vs_Joins.sql`](daily/Day006_Correlated_Subqueries_Vs_Joins.sql) | Correlated Subqueries vs EXISTS vs Inner Joins | 2026-11-16 | `Verified` |
-| [`Day007_Complex_Joins_And_Calendar_Tables.sql`](daily/Day007_Complex_Joins_And_Calendar_Tables.sql) | Continuous Time-Series Reporting with Calendar Tables | 2026-11-16 | `Verified` |
-| [`Day008_Row_Level_Locking_And_Deadlocks.sql`](daily/Day008_Row_Level_Locking_And_Deadlocks.sql) | Concurrency Control - Pessimistic Locking | 2026-11-16 | `Verified` |
+| [`Day002_Indexing_BTree_And_Explain_Analyze.sql`](daily/Day002_Indexing_BTree_And_Explain_Analyze.sql) | Query Optimization - Indexing Strategies & EXPLAIN Analysis | 2026-11-17 | `Verified` |
+| [`Day003_ACID_Transactions_And_Isolation_Levels.sql`](daily/Day003_ACID_Transactions_And_Isolation_Levels.sql) | Transactions - ACID Properties & Isolation Levels | 2026-11-17 | `Verified` |
+| [`Day004_Database_Normalization_1NF_to_BCNF.sql`](daily/Day004_Database_Normalization_1NF_to_BCNF.sql) | Schema Design - Normalization (1NF -> 2NF -> 3NF -> BCNF) | 2026-11-17 | `Verified` |
+| [`Day005_Triggers_And_Audit_Logging.sql`](daily/Day005_Triggers_And_Audit_Logging.sql) | Data Integrity - Triggers & Audit Trails | 2026-11-17 | `Verified` |
+| [`Day006_Correlated_Subqueries_Vs_Joins.sql`](daily/Day006_Correlated_Subqueries_Vs_Joins.sql) | Correlated Subqueries vs EXISTS vs Inner Joins | 2026-11-17 | `Verified` |
+| [`Day007_Complex_Joins_And_Calendar_Tables.sql`](daily/Day007_Complex_Joins_And_Calendar_Tables.sql) | Continuous Time-Series Reporting with Calendar Tables | 2026-11-17 | `Verified` |
+| [`Day008_Row_Level_Locking_And_Deadlocks.sql`](daily/Day008_Row_Level_Locking_And_Deadlocks.sql) | Concurrency Control - Pessimistic Locking | 2026-11-17 | `Verified` |
 | [`Day009_Database_Deadlock_Mitigation.sql`](daily/Day009_Database_Deadlock_Mitigation.sql) | Deadlock Detection & Resolution | 2026-11-06 | `Verified` |
 | [`Day010_JSON_Datatypes_And_NoSQL_Queries.sql`](daily/Day010_JSON_Datatypes_And_NoSQL_Queries.sql) | Semi-Structured Data & JSONB Queries | 2026-11-07 | `Verified` |
 | [`Day011_Materialized_Views_Aggregation.sql`](daily/Day011_Materialized_Views_Aggregation.sql) | Materialized Views & Summary Tables | 2026-11-08 | `Verified` |
@@ -54,6 +54,7 @@ sqlite3 :memory: < daily/Day001_Window_Functions_And_CTEs.sql
 | [`Day023_Columnar_Storage_Sim.sql`](daily/Day023_Columnar_Storage_Sim.sql) | Storage Engines - Columnar Compression & Vectorized Aggregations | 2026-11-15 | `Verified` |
 | [`Day024_Temporal_Tables_And_Point_In_Time_Queries.sql`](daily/Day024_Temporal_Tables_And_Point_In_Time_Queries.sql) | Slowly Changing Dimensions (SCD Type 2) & Temporal Point-in-Time Queries | 2026-11-15 | `Verified` |
 | [`Day025_Change_Data_Capture_Outbox.sql`](daily/Day025_Change_Data_Capture_Outbox.sql) | Distributed Systems - Change Data Capture (CDC) & Transactional Outbox Pattern | 2026-11-16 | `Verified` |
+| [`Day026_Graph_Traversal_In_RDBMS.sql`](daily/Day026_Graph_Traversal_In_RDBMS.sql) | Graph Modeling - Adjacency Lists & Transitive Closure Trees | 2026-11-17 | `Verified` |
 
 ---
 
