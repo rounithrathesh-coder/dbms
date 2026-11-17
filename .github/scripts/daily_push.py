@@ -331,7 +331,16 @@ def generate_dynamic_topic(day_num, date_str):
         ("Graph_Traversal_In_RDBMS", "Graph Modeling - Adjacency Lists & Transitive Closure Trees", "Graph Queries", "Hierarchical network traversal, shortest path queries, and cyclic graph protection."),
         ("Optimistic_Concurrency_Control", "Concurrency - Optimistic Concurrency Control (OCC) with Version Vectors", "Transactions", "Conflict detection without pessimistic locking using monotonic version columns and retry strategies."),
         ("Geospatial_RTree_Indexing", "Spatial Indexing - R-Trees, Geohashes & Proximity Radius Searches", "Spatial GIS", "Bounding boxes, spatial indexing primitives, and bounding polygon intersection queries."),
-        ("Columnar_Storage_Parquet_Sim", "Storage Engines - Columnar Compression & Vectorized Aggregations", "Analytics Engines", "Comparing row-oriented write throughput against columnar analytical scan compression.")
+        ("Columnar_Storage_Sim", "Storage Engines - Columnar Compression & Vectorized Aggregations", "Analytics Engines", "Comparing row-oriented write throughput against columnar analytical scan compression."),
+        ("LSM_Tree_Write_Ahead_Log", "Storage Engines - Log-Structured Merge-Trees (LSM) & Write-Ahead Logging (WAL)", "Storage Engines", "Sequential append logs, MemTables, immutable SSTables, and background compaction."),
+        ("Two_Phase_Commit_Distributed", "Distributed Systems - Two-Phase Commit (2PC) Protocol & Consensus Coordination", "Distributed Systems", "Atomic cross-shard transaction coordination with prepare and commit phases."),
+        ("Bitmapped_Indexing_Data_Warehousing", "Data Warehousing - Bitmap Indexing & Bitwise Boolean Query Evaluation", "Data Warehousing", "Low-cardinality multi-predicate filtering via hardware bitwise AND/OR operations."),
+        ("Database_Connection_Pooling_Starvation", "Database Reliability - Connection Pooling Starvation & Leaked Connection Reaping", "High Availability", "Mitigating pool exhaustion, thread starvation, and automated leaked connection eviction."),
+        ("Distributed_Lock_Advisory", "Concurrency - Distributed Advisory Locks & Leader Election", "Concurrency", "Application-level distributed coordination using PostgreSQL pg_advisory_lock."),
+        ("Multi_Tenancy_Row_Level_Security", "Security - Multi-Tenancy Architecture & Row-Level Security (RLS)", "Security", "Tenant isolation via session variables and declarative RLS filter policies."),
+        ("Timeseries_Hypertable_Rollup", "Time-Series Data - Continuous Aggregates & Automatic Chunk Pruning", "Time Series", "Partitioning time-series feeds into discrete chunks and precomputing rollup windows."),
+        ("Bloom_Filter_Index_Pruning", "Query Optimization - Bloom Filters & SSTable Block Skipping", "Query Optimization", "Probabilistic membership testing to prevent expensive disk seeks for non-existent keys."),
+        ("Saga_Orchestration_Pattern", "Distributed Transactions - Saga Orchestration & Compensating Transactions", "System Architecture", "Long-running business workflow coordination with forward execution and backward compensation.")
     ]
     pick = topics[(day_num - 18) % len(topics)] if day_num >= 18 else topics[0]
     name, title, cat, desc = pick

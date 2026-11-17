@@ -52,9 +52,10 @@ sqlite3 :memory: < daily/Day001_Window_Functions_And_CTEs.sql
 | [`Day021_Optimistic_Concurrency_Control.sql`](daily/Day021_Optimistic_Concurrency_Control.sql) | Concurrency - Optimistic Concurrency Control (OCC) with Version Vectors | 2026-11-13 | `Verified` |
 | [`Day022_Geospatial_RTree_Indexing.sql`](daily/Day022_Geospatial_RTree_Indexing.sql) | Spatial Indexing - R-Trees, Geohashes & Haversine Proximity Searches | 2026-11-14 | `Verified` |
 | [`Day023_Columnar_Storage_Sim.sql`](daily/Day023_Columnar_Storage_Sim.sql) | Storage Engines - Columnar Compression & Vectorized Aggregations | 2026-11-15 | `Verified` |
-| [`Day024_Temporal_Tables_And_Point_In_Time_Queries.sql`](daily/Day024_Temporal_Tables_And_Point_In_Time_Queries.sql) | Slowly Changing Dimensions (SCD Type 2) & Temporal Point-in-Time Queries | 2026-11-15 | `Verified` |
-| [`Day025_Change_Data_Capture_Outbox.sql`](daily/Day025_Change_Data_Capture_Outbox.sql) | Distributed Systems - Change Data Capture (CDC) & Transactional Outbox Pattern | 2026-11-16 | `Verified` |
-| [`Day026_Graph_Traversal_In_RDBMS.sql`](daily/Day026_Graph_Traversal_In_RDBMS.sql) | Graph Modeling - Adjacency Lists & Transitive Closure Trees | 2026-11-17 | `Verified` |
+| [`Day024_LSM_Tree_Write_Ahead_Log.sql`](daily/Day024_LSM_Tree_Write_Ahead_Log.sql) | Storage Engines - Log-Structured Merge-Trees (LSM) & Write-Ahead Logging (WAL) | 2026-11-15 | `Verified` |
+| [`Day025_Two_Phase_Commit_Distributed.sql`](daily/Day025_Two_Phase_Commit_Distributed.sql) | Distributed Systems - Two-Phase Commit (2PC) Protocol & Consensus Coordination | 2026-11-16 | `Verified` |
+| [`Day026_Bitmapped_Indexing_Data_Warehousing.sql`](daily/Day026_Bitmapped_Indexing_Data_Warehousing.sql) | Data Warehousing - Bitmap Indexing & Bitwise Boolean Query Evaluation | 2026-11-17 | `Verified` |
+| [`Day027_Database_Connection_Pooling_Starvation.sql`](daily/Day027_Database_Connection_Pooling_Starvation.sql) | Database Reliability - Connection Pooling Starvation & Leaked Connection Reaping | 2026-11-17 | `Verified` |
 
 ---
 
