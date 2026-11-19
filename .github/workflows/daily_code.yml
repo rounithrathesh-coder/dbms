@@ -2,8 +2,8 @@ name: Daily DBMS Code Push
 
 on:
   schedule:
-    # Runs everyday at 04:00 UTC (09:30 AM IST)
-    - cron: '0 4 * * *'
+    # Runs everyday at 03:25 UTC (08:55 AM IST) - off-peak minute prevents GitHub queue delays
+    - cron: '25 3 * * *'
   workflow_dispatch:
 
 permissions:
