@@ -61,9 +61,26 @@ sqlite3 :memory: < daily/Day001_Window_Functions_And_CTEs.sql
 
 ---
 
+---
+
+## 🎓 Academic Curriculum & Syllabus Mapping (REC R2023 IT)
+
+This repository comprehensively covers the official **Rajalakshmi Engineering College (REC) R2023 IT Syllabus**:
+
+| Unit | Syllabus Module | Key Topics Covered | Reference Implementations |
+| :---: | :--- | :--- | :--- |
+| **Unit I** | **Database Systems and SQL Query** | Codd's 12 Rules, RDBMS Architecture, Three-Valued Logic (NULLs), Set Operations (`UNION`, `INTERSECT`, `EXCEPT`), Nested Subqueries, Views | [`topics/01_Basics_DDL_DML/`](topics/01_Basics_DDL_DML/), [`topics/02_Joins_and_Subqueries/`](topics/02_Joins_and_Subqueries/), [`syllabus/Unit1_Codds_Rules_Set_Operations_Null_Logic.sql`](syllabus/Unit1_Codds_Rules_Set_Operations_Null_Logic.sql) |
+| **Unit II** | **PL/SQL, Data Model & Query Processing** | Stored Procedures, Functions, Audit Triggers, Explicit Cursors, Relational Algebra, Query Processing & Heuristics Optimization | [`syllabus/Unit2_PLSQL_Procedures_Functions_Cursors_Relational_Algebra.sql`](syllabus/Unit2_PLSQL_Procedures_Functions_Cursors_Relational_Algebra.sql), [`daily/Day005_Triggers_And_Audit_Logging.sql`](daily/Day005_Triggers_And_Audit_Logging.sql) |
+| **Unit III** | **Normal Forms and Indexing** | Functional Dependencies, Armstrong's Axioms, Attribute Closures ($F^+$), 1NF–BCNF, 4NF (MVD), 5NF (PJNF), B+ Tree File Organization | [`topics/03_Indexing_and_Performance/`](topics/03_Indexing_and_Performance/), [`syllabus/Unit3_Armstrongs_Axioms_Attribute_Closure_4NF_5NF.sql`](syllabus/Unit3_Armstrongs_Axioms_Attribute_Closure_4NF_5NF.sql), [`daily/Day004_Database_Normalization_1NF_to_BCNF.sql`](daily/Day004_Database_Normalization_1NF_to_BCNF.sql) |
+| **Unit IV** | **Transactions, Concurrency & Recovery** | ACID, Conflict Serializability (Precedence Graph Cycles), 2PL, Timestamp Ordering, Multiple Granularity Locking (MGL), ARIES Recovery Algorithm | [`topics/04_Transactions_and_Concurrency/`](topics/04_Transactions_and_Concurrency/), [`syllabus/Unit4_Conflict_Serializability_MGL_ARIES_Recovery.sql`](syllabus/Unit4_Conflict_Serializability_MGL_ARIES_Recovery.sql), [`daily/Day003_ACID_Transactions_And_Isolation_Levels.sql`](daily/Day003_ACID_Transactions_And_Isolation_Levels.sql), [`daily/Day021_Optimistic_Concurrency_Control.sql`](daily/Day021_Optimistic_Concurrency_Control.sql) |
+| **Unit V** | **NoSQL Database & Big Data** | SQL vs NoSQL, CAP Theorem (CP vs AP), MongoDB Document Modeling (Embedding vs Referencing), Sharding & Replication Architecture | [`syllabus/Unit5_NoSQL_vs_RDBMS_Document_Modeling_CAP.sql`](syllabus/Unit5_NoSQL_vs_RDBMS_Document_Modeling_CAP.sql), [`daily/Day010_JSON_Datatypes_And_NoSQL_Queries.sql`](daily/Day010_JSON_Datatypes_And_NoSQL_Queries.sql), [`daily/Day015_JSON_Datatypes_And_NoSQL_Queries.sql`](daily/Day015_JSON_Datatypes_And_NoSQL_Queries.sql) |
+
+---
+
 ## 📂 Repository Structure
 - `daily/`: Daily DBMS challenges, advanced queries, and schema implementations
 - `topics/`: Categorized reference guides (DDL/DML, Joins, Indexing, Transactions)
+- `syllabus/`: Complete REC R2023 IT academic curriculum modules
 - `.github/workflows/`: CI/CD automation for scheduled daily code updates
 
 ---
