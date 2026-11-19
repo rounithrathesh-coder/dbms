@@ -1,15 +1,11 @@
-# 🗄️ Daily Database Management Systems (DBMS) & SQL Mastery
+# 🗄️ 100 Days of Database Management Systems (DBMS) & SQL Mastery
 
-[![Daily DBMS Code Push](https://github.com/rounithrathesh-coder/dbms/actions/workflows/daily_code.yml/badge.svg)](https://github.com/rounithrathesh-coder/dbms/actions/workflows/daily_code.yml)
 [![SQL: Standard](https://img.shields.io/badge/SQL-ANSI%20Standard-blue.svg)](https://en.wikipedia.org/wiki/SQL)
 [![Database: PostgreSQL/MySQL/SQLite](https://img.shields.io/badge/RDBMS-PostgreSQL%20%7C%20MySQL%20%7C%20SQLite-brightgreen.svg)]()
 
 A comprehensive repository for daily database engineering, query optimization, indexing strategies, normalization patterns, and transaction design.
 
 ---
-
-## ⚡ Automated Daily Updates
-This repository automatically receives daily SQL queries and schema challenges via **GitHub Actions** scheduled workflows running every morning at **03:25 UTC (08:55 AM IST)**.
 
 ### How to Run Locally
 You can run any `.sql` file using PostgreSQL, MySQL, or SQLite:
@@ -26,7 +22,7 @@ sqlite3 :memory: < daily/Day001_Window_Functions_And_CTEs.sql
 ---
 
 ## 🎓 Academic Curriculum & Syllabus Integration (REC R2023 IT)
-Starting from **Day 030**, the automated daily challenges systematically advance through the official **Rajalakshmi Engineering College (REC) R2023 IT Curriculum (Units I–V)**:
+Starting from **Day 030**, the daily challenges systematically advance through the official **Rajalakshmi Engineering College (REC) R2023 IT Curriculum (Units I–V)**:
 - **Unit I (Database Systems & SQL Query):** Codd's 12 Rules, RDBMS architecture, three-valued logic (NULL handling with 3VL truth tables, `IS DISTINCT FROM`, `COALESCE`), Set Operations (`UNION`, `INTERSECT`, `EXCEPT`), complex nested subqueries, and views
 - **Unit II (PL/SQL, Data Model & Query Processing):** Stored procedures with IN/OUT parameters, deterministic functions, explicit cursors with `%FOUND`/`%NOTFOUND` tracking, dynamic SQL (`EXECUTE IMMEDIATE`), Relational Algebra equivalences, and heuristic query optimization
 - **Unit III (Normal Forms & Indexing):** Functional Dependencies, Armstrong's Axioms, attribute closures ($F^+$), 1NF–BCNF, Multivalued Dependencies (4NF), Join Dependencies (5NF/PJNF), B+ Tree doubly linked leaf file organization
@@ -74,7 +70,6 @@ Starting from **Day 030**, the automated daily challenges systematically advance
 ## 📂 Repository Structure
 - `daily/`: Daily DBMS challenges, advanced queries, and schema implementations
 - `topics/`: Categorized reference guides (DDL/DML, Joins, Indexing, Transactions)
-- `.github/workflows/`: CI/CD automation for scheduled daily code updates
 
 ---
 *Maintained by [@rounithrathesh-coder](https://github.com/rounithrathesh-coder)*

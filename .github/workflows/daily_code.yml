@@ -1,8 +1,8 @@
-name: Daily DBMS Code Push
+name: Daily Practice Sync
 
 on:
   schedule:
-    # Runs everyday at 03:25 UTC (08:55 AM IST) - off-peak minute prevents GitHub queue delays
+    # Runs everyday at 03:25 UTC (08:55 AM IST) - off-peak minute prevents queue delays
     - cron: '25 3 * * *'
   workflow_dispatch:
 
@@ -10,12 +10,13 @@ permissions:
   contents: write
 
 jobs:
-  daily-code-push:
+  daily-sync:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
+          token: ${{ secrets.PAT_TOKEN }}
           fetch-depth: 0
 
       - name: Set up Python
@@ -23,17 +24,34 @@ jobs:
         with:
           python-version: '3.10'
 
-      - name: Generate daily DBMS code
-        run: python3 .github/scripts/daily_push.py
+      - name: Sync daily solution
+        id: run_solution
+        run: |
+          OUTPUT=$(python3 .github/scripts/daily_push.py)
+          echo "$OUTPUT"
+          COMMIT_MSG=$(echo "$OUTPUT" | grep "^COMMIT_MSG:" | cut -d':' -f2- || true)
+          if [ -z "$COMMIT_MSG" ]; then
+            COMMIT_MSG="feat(daily): solve daily challenge and update progress log"
+          fi
+          echo "msg=$COMMIT_MSG" >> $GITHUB_OUTPUT
 
       - name: Commit and push changes
+        env:
+          GIT_AUTHOR_NAME: "Rounith Rathesh"
+          GIT_AUTHOR_EMAIL: "rounithrathesh@gmail.com"
+          GIT_COMMITTER_NAME: "Rounith Rathesh"
+          GIT_COMMITTER_EMAIL: "rounithrathesh@gmail.com"
         run: |
           git config --global user.name "rounithrathesh-coder"
           git config --global user.email "rounithrathesh@gmail.com"
+          git config --global author.name "Rounith Rathesh"
+          git config --global author.email "rounithrathesh@gmail.com"
+          git config --global committer.name "Rounith Rathesh"
+          git config --global committer.email "rounithrathesh@gmail.com"
           git add .
           if git diff --staged --quiet; then
             echo "No changes to commit."
           else
-            git commit -m "feat(daily): automated DBMS code push for $(date +'%Y-%m-%d')"
+            git commit -m "${{ steps.run_solution.outputs.msg }}"
             git push origin main
           fi
