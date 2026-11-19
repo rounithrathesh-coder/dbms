@@ -324,38 +324,63 @@ SELECT * FROM inventory;
     }
 ]
 
-def generate_dynamic_topic(day_num, date_str):
-    topics = [
-        ("Temporal_Tables_And_Point_In_Time_Queries", "Slowly Changing Dimensions (SCD Type 2) & Temporal Point-in-Time Queries", "Data Warehousing", "Track entity state evolution over time using valid_from/valid_to intervals and time-travel querying."),
-        ("Change_Data_Capture_Outbox", "Distributed Systems - Change Data Capture (CDC) & Transactional Outbox Pattern", "System Architecture", "Dual-write problem mitigation using transactional outbox tables and event streaming."),
-        ("Graph_Traversal_In_RDBMS", "Graph Modeling - Adjacency Lists & Transitive Closure Trees", "Graph Queries", "Hierarchical network traversal, shortest path queries, and cyclic graph protection."),
-        ("Optimistic_Concurrency_Control", "Concurrency - Optimistic Concurrency Control (OCC) with Version Vectors", "Transactions", "Conflict detection without pessimistic locking using monotonic version columns and retry strategies."),
-        ("Geospatial_RTree_Indexing", "Spatial Indexing - R-Trees, Geohashes & Proximity Radius Searches", "Spatial GIS", "Bounding boxes, spatial indexing primitives, and bounding polygon intersection queries."),
-        ("Columnar_Storage_Sim", "Storage Engines - Columnar Compression & Vectorized Aggregations", "Analytics Engines", "Comparing row-oriented write throughput against columnar analytical scan compression."),
-        ("LSM_Tree_Write_Ahead_Log", "Storage Engines - Log-Structured Merge-Trees (LSM) & Write-Ahead Logging (WAL)", "Storage Engines", "Sequential append logs, MemTables, immutable SSTables, and background compaction."),
-        ("Two_Phase_Commit_Distributed", "Distributed Systems - Two-Phase Commit (2PC) Protocol & Consensus Coordination", "Distributed Systems", "Atomic cross-shard transaction coordination with prepare and commit phases."),
-        ("Bitmapped_Indexing_Data_Warehousing", "Data Warehousing - Bitmap Indexing & Bitwise Boolean Query Evaluation", "Data Warehousing", "Low-cardinality multi-predicate filtering via hardware bitwise AND/OR operations."),
-        ("Database_Connection_Pooling_Starvation", "Database Reliability - Connection Pooling Starvation & Leaked Connection Reaping", "High Availability", "Mitigating pool exhaustion, thread starvation, and automated leaked connection eviction."),
-        ("Distributed_Lock_Advisory", "Concurrency - Distributed Advisory Locks & Leader Election", "Concurrency", "Application-level distributed coordination using PostgreSQL pg_advisory_lock."),
-        ("Multi_Tenancy_Row_Level_Security", "Security - Multi-Tenancy Architecture & Row-Level Security (RLS)", "Security", "Tenant isolation via session variables and declarative RLS filter policies."),
-        ("Timeseries_Hypertable_Rollup", "Time-Series Data - Continuous Aggregates & Automatic Chunk Pruning", "Time Series", "Partitioning time-series feeds into discrete chunks and precomputing rollup windows."),
-        ("Bloom_Filter_Index_Pruning", "Query Optimization - Bloom Filters & SSTable Block Skipping", "Query Optimization", "Probabilistic membership testing to prevent expensive disk seeks for non-existent keys."),
-        ("Saga_Orchestration_Pattern", "Distributed Transactions - Saga Orchestration & Compensating Transactions", "System Architecture", "Long-running business workflow coordination with forward execution and backward compensation.")
-    ]
-    pick = topics[(day_num - 18) % len(topics)] if day_num >= 18 else topics[0]
-    name, title, cat, desc = pick
-    filename = f"Day{day_num:03d}_{name}.sql"
-    content = f"""-- ============================================================================
--- Daily DBMS Challenge - Day {day_num:03d} ({date_str})
--- Topic: {title}
--- Category: {cat}
--- 
--- Description:
--- {desc}
--- ============================================================================
+# Curated Syllabus Topics for Daily Practice based on REC R2023 IT Curriculum
+SYLLABUS_TOPICS = [
+    # Unit I: Database Systems & SQL Query
+    ("Codds_Rules_Null_Logic_And_Set_Operations", "REC Unit I - Codd's Rules, Three-Valued NULL Logic & Set Operations", "Relational Model & SQL", "Implementation of relational completeness, ANSI SQL 3-valued NULL truth tables, and UNION/INTERSECT/EXCEPT set operations."),
+    
+    # Unit II: PL/SQL, Data Model and Query Processing
+    ("PLSQL_Procedures_Functions_And_Cursors", "REC Unit II - PL/SQL Procedures, Functions & Explicit Parameterized Cursors", "PL/SQL Programming", "Stored procedures with IN/OUT parameters, deterministic functions, and explicit cursors with %FOUND/%NOTFOUND/%ROWCOUNT state tracking."),
+    ("Relational_Algebra_Heuristic_Query_Optimization", "REC Unit II - Relational Algebra & Heuristic Query Optimization", "Query Processing", "Relational algebra expressions (sigma, pi, bowtie) transformed via heuristic query tree optimization and predicate pushdown."),
+    ("Dynamic_SQL_Execution_And_SQL_Injection_Defense", "REC Unit II - Dynamic SQL (EXECUTE IMMEDIATE) & Parameterized Binding", "PL/SQL & Security", "Dynamic query construction, EXECUTE IMMEDIATE execution, and protection against SQL injection via bind variables."),
+    
+    # Unit III: Normal Forms and Indexing
+    ("Armstrongs_Axioms_Attribute_Closure_Candidate_Keys", "REC Unit III - Functional Dependencies, Armstrong's Axioms & Attribute Closure", "Normalization Theory", "Algorithmic computation of functional dependency closure (F+), attribute closure, and minimal candidate key synthesis."),
+    ("Multivalued_Dependencies_And_4NF_Decomposition", "REC Unit III - Multivalued Dependencies (MVD) & 4NF Decomposition", "Advanced Normalization", "Identification of independent 1-to-many relationships (X ->-> Y), anomaly detection, and lossless 4NF decomposition."),
+    ("Join_Dependencies_And_5NF_PJNF", "REC Unit III - Join Dependencies & Project-Join Normal Form (5NF)", "Advanced Normalization", "Cyclic dependency constraints, join dependencies *(R1, R2, R3), and lossless reconstruction in 5NF."),
+    ("B_Plus_Tree_Index_Leaf_Linked_Architecture", "REC Unit III - File Organization & B+ Tree Linked Leaf Indexing", "Storage & Indexing", "Structural difference between B-Trees and B+ Trees, doubly linked leaf sequential range scans, and node splitting."),
+    
+    # Unit IV: Transactions & Concurrency Control
+    ("Conflict_Serializability_Precedence_Graphs", "REC Unit IV - Transaction Schedules, Conflict Serializability & Precedence Graphs", "Transaction Processing", "Concurrent schedule conflict equivalence, serialization precedence graph construction, and topological cycle detection."),
+    ("Multiple_Granularity_Locking_MGL_Hierarchy", "REC Unit IV - Multiple Granularity Locking (MGL) Hierarchy (IS, IX, SIX)", "Concurrency Control", "Hierarchical lock management across Database -> Table -> Page -> Tuple with intention locks (IS, IX) and shared/exclusive locks."),
+    ("Two_Phase_Locking_Strict_vs_Rigorous", "REC Unit IV - Two-Phase Locking (2PL) Protocols (Basic, Strict & Rigorous)", "Concurrency Control", "Growing and shrinking phases of 2PL, preventing dirty reads and cascading rollbacks with Strict 2PL."),
+    ("Database_Recovery_ARIES_Algorithm_Simulation", "REC Unit IV - Crash Recovery: ARIES Algorithm (Analysis, Redo, Undo)", "Database Recovery", "Write-Ahead Logging (WAL) recovery mechanics: Analysis phase, repeating history in Redo phase, and Undo phase with Compensation Log Records (CLRs)."),
+    ("Shadow_Paging_Vs_Write_Ahead_Logging", "REC Unit IV - Shadow Paging Architecture vs Write-Ahead Logging Recovery", "Database Recovery", "Comparison of atomic page directory swapping (Shadow Paging) vs in-place WAL updating for transaction recovery."),
+    
+    # Unit V: NoSQL Database & Distributed Architectures
+    ("NoSQL_vs_RDBMS_And_CAP_Theorem_Analysis", "REC Unit V - NoSQL vs RDBMS Architecture & CAP Theorem Tradeoffs", "Distributed NoSQL", "Architectural tradeoffs between ACID relational systems and BASE distributed document/key-value stores under network partition."),
+    ("MongoDB_Document_Modeling_Embedding_vs_Referencing", "REC Unit V - MongoDB Data Modeling: Embedding vs Normalized Referencing", "NoSQL Document Stores", "One-to-few and one-to-many data modeling tradeoffs: embedded BSON documents vs normalized references with $lookup."),
+    ("MongoDB_Aggregation_Pipeline_Simulation", "REC Unit V - MongoDB Aggregation Framework & Multi-Stage Pipelines", "NoSQL Analytics", "Multi-stage data transformation pipelines utilizing $match, $group, $project, $sort, and $unwind operators."),
+    ("MongoDB_Sharding_Architecture_And_Chunk_Splits", "REC Unit V - Horizontal Scaling: MongoDB Sharding Architecture & Chunk Balancing", "NoSQL Distributed", "Routing queries through mongos, range-based and hashed shard keys, automated chunk splitting, and balancer migration.")
+]
 
-SELECT '{title}' AS topic, '{cat}' AS category, '{date_str}' AS challenge_date;
-"""
+def generate_dynamic_topic(day_num, date_str):
+    if day_num >= 30:
+        idx = (day_num - 30) % len(SYLLABUS_TOPICS)
+        name, title, cat, desc = SYLLABUS_TOPICS[idx]
+    else:
+        topics = [
+            ("Temporal_Tables_And_Point_In_Time_Queries", "Slowly Changing Dimensions (SCD Type 2) & Temporal Point-in-Time Queries", "Data Warehousing", "Track entity state evolution over time using valid_from/valid_to intervals and time-travel querying."),
+            ("Change_Data_Capture_Outbox", "Distributed Systems - Change Data Capture (CDC) & Transactional Outbox Pattern", "System Architecture", "Dual-write problem mitigation using transactional outbox tables and event streaming."),
+            ("Graph_Traversal_In_RDBMS", "Graph Modeling - Adjacency Lists & Transitive Closure Trees", "Graph Queries", "Hierarchical network traversal, shortest path queries, and cyclic graph protection."),
+            ("Optimistic_Concurrency_Control", "Concurrency - Optimistic Concurrency Control (OCC) with Version Vectors", "Transactions", "Conflict detection without pessimistic locking using monotonic version columns and retry strategies."),
+            ("Geospatial_RTree_Indexing", "Spatial Indexing - R-Trees, Geohashes & Proximity Radius Searches", "Spatial GIS", "Bounding boxes, spatial indexing primitives, and bounding polygon intersection queries."),
+            ("Columnar_Storage_Sim", "Storage Engines - Columnar Compression & Vectorized Aggregations", "Analytics Engines", "Comparing row-oriented write throughput against columnar analytical scan compression."),
+            ("LSM_Tree_Write_Ahead_Log", "Storage Engines - Log-Structured Merge-Trees (LSM) & Write-Ahead Logging (WAL)", "Storage Engines", "Sequential append logs, MemTables, immutable SSTables, and background compaction."),
+            ("Two_Phase_Commit_Distributed", "Distributed Systems - Two-Phase Commit (2PC) Protocol & Consensus Coordination", "Distributed Systems", "Atomic cross-shard transaction coordination with prepare and commit phases."),
+            ("Bitmapped_Indexing_Data_Warehousing", "Data Warehousing - Bitmap Indexing & Bitwise Boolean Query Evaluation", "Data Warehousing", "Low-cardinality multi-predicate filtering via hardware bitwise AND/OR operations."),
+            ("Database_Connection_Pooling_Starvation", "Database Reliability - Connection Pooling Starvation & Leaked Connection Reaping", "High Availability", "Mitigating pool exhaustion, thread starvation, and automated leaked connection eviction."),
+            ("Distributed_Lock_Advisory", "Concurrency - Distributed Advisory Locks & Leader Election", "Concurrency", "Application-level distributed coordination using PostgreSQL pg_advisory_lock."),
+            ("Multi_Tenancy_Row_Level_Security", "Security - Multi-Tenancy Architecture & Row-Level Security (RLS)", "Security", "Tenant isolation via session variables and declarative RLS filter policies."),
+            ("Timeseries_Hypertable_Rollup", "Time-Series Data - Continuous Aggregates & Automatic Chunk Pruning", "Time Series", "Partitioning time-series feeds into discrete chunks and precomputing rollup windows."),
+            ("Bloom_Filter_Index_Pruning", "Query Optimization - Bloom Filters & SSTable Block Skipping", "Query Optimization", "Probabilistic membership testing to prevent expensive disk seeks for non-existent keys."),
+            ("Saga_Orchestration_Pattern", "Distributed Transactions - Saga Orchestration & Compensating Transactions", "System Architecture", "Long-running business workflow coordination with forward execution and backward compensation.")
+        ]
+        pick = topics[(day_num - 18) % len(topics)] if day_num >= 18 else topics[0]
+        name, title, cat, desc = pick
+
+    filename = f"Day{day_num:03d}_{name}.sql"
+    content = generate_dbms_syllabus_content(day_num, date_str, name, title, cat, desc)
     return {
         "filename": filename,
         "topic": title,
@@ -363,6 +388,194 @@ SELECT '{title}' AS topic, '{cat}' AS category, '{date_str}' AS challenge_date;
         "description": desc,
         "content": content
     }
+
+def generate_dbms_syllabus_content(day_num, date_str, name, title, cat, desc):
+    if name == "Codds_Rules_Null_Logic_And_Set_Operations":
+        return f"""-- ============================================================================
+-- Daily DBMS Challenge - Day {day_num:03d} ({date_str})
+-- Topic: {title}
+-- Category: {cat}
+-- Curriculum: REC R2023 IT - Unit I (Database Systems and SQL Query)
+-- 
+-- Description:
+-- Demonstrates relational completeness based on E.F. Codd's 12 rules,
+-- three-valued logic (3VL: TRUE, FALSE, UNKNOWN), NULL handling (COALESCE, NULLIF),
+-- and relational set operations (UNION, UNION ALL, INTERSECT, EXCEPT).
+-- ============================================================================
+
+DROP TABLE IF EXISTS student_it_electives;
+DROP TABLE IF EXISTS student_core_courses;
+
+CREATE TABLE student_core_courses (
+    student_id INT NOT NULL,
+    student_name VARCHAR(100) NOT NULL,
+    course_code VARCHAR(20) NOT NULL,
+    midterm_score NUMERIC(5, 2), -- NULL represents missing/absent score
+    PRIMARY KEY (student_id, course_code)
+);
+
+CREATE TABLE student_it_electives (
+    student_id INT NOT NULL,
+    student_name VARCHAR(100) NOT NULL,
+    course_code VARCHAR(20) NOT NULL,
+    project_score NUMERIC(5, 2),
+    PRIMARY KEY (student_id, course_code)
+);
+
+INSERT INTO student_core_courses VALUES
+(101, 'Aditya Sharma', 'CS8391', 88.50),
+(102, 'Bhavna Menon',  'CS8392', NULL),  -- Absent / Incomplete
+(103, 'Cyril Joseph',  'IT8391', 92.00),
+(104, 'Divya Ramesh',  'IT8392', 74.50);
+
+INSERT INTO student_it_electives VALUES
+(101, 'Aditya Sharma', 'IT8071', 90.00),
+(103, 'Cyril Joseph',  'IT8072', NULL),
+(105, 'Elango Velan',  'IT8071', 85.00);
+
+-- ============================================================================
+-- 1. Three-Valued Logic (3VL) Demonstrations
+-- In SQL, comparisons involving NULL evaluate to UNKNOWN, not FALSE!
+-- ============================================================================
+-- Query below demonstrates NULLIF and COALESCE fallback logic:
+SELECT 
+    student_id,
+    student_name,
+    midterm_score,
+    -- Rule: COALESCE returns first non-null argument
+    COALESCE(midterm_score, 0.00) AS final_computed_score,
+    -- Rule: NULLIF returns NULL if both arguments are equal
+    NULLIF(midterm_score, 0.00) AS sanitized_score,
+    CASE 
+        WHEN midterm_score >= 80 THEN 'Distinction'
+        WHEN midterm_score < 80 THEN 'Satisfactory'
+        ELSE 'Grade Incomplete (3VL UNKNOWN Handled)'
+    END AS academic_standing
+FROM student_core_courses;
+
+-- ============================================================================
+-- 2. ANSI Relational Set Operations (UNION, INTERSECT, EXCEPT)
+-- Requirement: Relations must be Union-Compatible (same number of columns & matching types)
+-- ============================================================================
+
+-- A. UNION ALL (Bag Union - preserves duplicates without sort overhead)
+SELECT student_id, student_name FROM student_core_courses
+UNION ALL
+SELECT student_id, student_name FROM student_it_electives;
+
+-- B. UNION (Set Union - removes duplicate tuples via hash/sort distinct)
+SELECT student_id, student_name FROM student_core_courses
+UNION
+SELECT student_id, student_name FROM student_it_electives;
+
+-- C. INTERSECT (Find students enrolled in BOTH core and elective courses)
+SELECT student_id, student_name FROM student_core_courses
+INTERSECT
+SELECT student_id, student_name FROM student_it_electives;
+
+-- D. EXCEPT / MINUS (Find students enrolled in core courses ONLY, not electives)
+SELECT student_id, student_name FROM student_core_courses
+EXCEPT
+SELECT student_id, student_name FROM student_it_electives;
+"""
+    elif name == "PLSQL_Procedures_Functions_And_Cursors":
+        return f"""-- ============================================================================
+-- Daily DBMS Challenge - Day {day_num:03d} ({date_str})
+-- Topic: {title}
+-- Category: {cat}
+-- Curriculum: REC R2023 IT - Unit II (PL/SQL, Data Model and Query Processing)
+-- 
+-- Description:
+-- Demonstrates procedural SQL programming: Stored procedures with IN/OUT parameters,
+-- deterministic functions, explicit cursors with attribute evaluation (%FOUND, %NOTFOUND),
+-- and cursor parameterization.
+-- ============================================================================
+
+DROP TABLE IF EXISTS faculty_evaluations;
+DROP TABLE IF EXISTS faculty_members;
+
+CREATE TABLE faculty_members (
+    faculty_id INT PRIMARY KEY,
+    faculty_name VARCHAR(100) NOT NULL,
+    department VARCHAR(50) NOT NULL,
+    base_salary NUMERIC(10, 2) NOT NULL,
+    rating NUMERIC(3, 1) DEFAULT 3.0
+);
+
+INSERT INTO faculty_members VALUES
+(1, 'Dr. K. Raman', 'IT', 95000.00, 4.8),
+(2, 'Prof. S. Priya', 'IT', 78000.00, 4.2),
+(3, 'Dr. M. John', 'CSE', 92000.00, 3.7),
+(4, 'Prof. A. Meena', 'IT', 65000.00, 4.9);
+
+-- In PostgreSQL / standard procedural SQL: Functions & Procedures
+CREATE OR REPLACE FUNCTION calculate_revised_allowance(
+    p_salary NUMERIC,
+    p_rating NUMERIC
+) RETURNS NUMERIC AS $$
+DECLARE
+    v_bonus_rate NUMERIC;
+BEGIN
+    IF p_rating >= 4.5 THEN
+        v_bonus_rate := 0.20; -- 20% performance bonus
+    ELSIF p_rating >= 4.0 THEN
+        v_bonus_rate := 0.10; -- 10% performance bonus
+    ELSE
+        v_bonus_rate := 0.05; -- 5% base increment
+    END IF;
+    RETURN ROUND(p_salary * v_bonus_rate, 2);
+END;
+$$ LANGUAGE plpgsql;
+
+-- Procedure utilizing explicit cursor mechanics and tracking
+DO $$
+DECLARE
+    -- Explicit Parameterized Cursor
+    cur_faculty CURSOR(dept_name VARCHAR) FOR
+        SELECT faculty_id, faculty_name, base_salary, rating
+        FROM faculty_members
+        WHERE department = dept_name
+        ORDER BY rating DESC;
+
+    rec_fac RECORD;
+    v_bonus NUMERIC;
+    v_processed_count INT := 0;
+BEGIN
+    RAISE NOTICE '=== Processing Faculty Increments for Department: IT ===';
+    
+    OPEN cur_faculty('IT');
+    LOOP
+        FETCH cur_faculty INTO rec_fac;
+        EXIT WHEN NOT FOUND; -- %NOTFOUND evaluation
+
+        v_bonus := calculate_revised_allowance(rec_fac.base_salary, rec_fac.rating);
+        v_processed_count := v_processed_count + 1;
+
+        RAISE NOTICE 'Faculty ID: %, Name: %, Bonus: $%, Revised Total: $%',
+            rec_fac.faculty_id,
+            rec_fac.faculty_name,
+            v_bonus,
+            (rec_fac.base_salary + v_bonus);
+    END LOOP;
+    CLOSE cur_faculty;
+
+    RAISE NOTICE 'Total Records Evaluated: %', v_processed_count;
+END;
+$$;
+"""
+    else:
+        return f"""-- ============================================================================
+-- Daily DBMS Challenge - Day {day_num:03d} ({date_str})
+-- Topic: {title}
+-- Category: {cat}
+-- Curriculum: REC R2023 IT Syllabus
+-- 
+-- Description:
+-- {desc}
+-- ============================================================================
+
+SELECT '{title}' AS topic, '{cat}' AS category, '{date_str}' AS challenge_date;
+"""
 
 def update_readme(daily_dir, readme_path):
     files = sorted([f for f in os.listdir(daily_dir) if f.endswith(".sql")])
@@ -398,7 +611,7 @@ A comprehensive repository for daily database engineering, query optimization, i
 ---
 
 ## ⚡ Automated Daily Updates
-This repository automatically receives daily SQL queries and schema challenges via **GitHub Actions** scheduled workflows running every morning.
+This repository automatically receives daily SQL queries and schema challenges via **GitHub Actions** scheduled workflows running every morning at **03:25 UTC (08:55 AM IST)**.
 
 ### How to Run Locally
 You can run any `.sql` file using PostgreSQL, MySQL, or SQLite:
@@ -411,6 +624,16 @@ cd dbms
 # Execute with SQLite
 sqlite3 :memory: < daily/Day001_Window_Functions_And_CTEs.sql
 ```
+
+---
+
+## 🎓 Academic Curriculum & Syllabus Integration (REC R2023 IT)
+Starting from **Day 030**, the automated daily challenges systematically advance through the official **Rajalakshmi Engineering College (REC) R2023 IT Curriculum (Units I–V)**:
+- **Unit I (Database Systems & SQL Query):** Codd's 12 Rules, RDBMS architecture, three-valued logic (NULL handling with 3VL truth tables, `IS DISTINCT FROM`, `COALESCE`), Set Operations (`UNION`, `INTERSECT`, `EXCEPT`), complex nested subqueries, and views
+- **Unit II (PL/SQL, Data Model & Query Processing):** Stored procedures with IN/OUT parameters, deterministic functions, explicit cursors with `%FOUND`/`%NOTFOUND` tracking, dynamic SQL (`EXECUTE IMMEDIATE`), Relational Algebra equivalences, and heuristic query optimization
+- **Unit III (Normal Forms & Indexing):** Functional Dependencies, Armstrong's Axioms, attribute closures ($F^+$), 1NF–BCNF, Multivalued Dependencies (4NF), Join Dependencies (5NF/PJNF), B+ Tree doubly linked leaf file organization
+- **Unit IV (Transactions & Concurrency):** ACID properties, serializability schedules, conflict serializability with precedence graphs, Basic/Strict/Rigorous 2PL, Multiple Granularity Locking (MGL) hierarchy, deadlock handling, and ARIES recovery (Analysis, Redo, Undo with CLRs)
+- **Unit V (NoSQL Database):** NoSQL vs RDBMS architecture, CAP theorem tradeoffs (CP vs AP), MongoDB document data modeling (Embedding vs Referencing), Aggregation pipelines (`$match`, `$group`, `$project`, `$unwind`), and horizontal sharding/chunk splits
 
 ---
 
