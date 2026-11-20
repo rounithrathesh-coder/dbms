@@ -2,8 +2,8 @@ name: Daily Practice Sync
 
 on:
   schedule:
-    # Runs everyday at 03:25 UTC (08:55 AM IST) - off-peak minute prevents queue delays
-    - cron: '25 3 * * *'
+    # Runs everyday at 01:45 UTC (07:15 AM IST) so it completes before 08:00 AM IST
+    - cron: '45 1 * * *'
   workflow_dispatch:
 
 permissions:
