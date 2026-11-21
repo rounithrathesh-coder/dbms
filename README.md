@@ -65,6 +65,7 @@ Starting from **Day 030**, the daily challenges systematically advance through t
 | [`Day028_Distributed_Lock_Advisory.sql`](daily/Day028_Distributed_Lock_Advisory.sql) | Concurrency - Distributed Advisory Locks & Leader Election | 2026-11-18 | `Verified` |
 | [`Day029_Multi_Tenancy_Row_Level_Security.sql`](daily/Day029_Multi_Tenancy_Row_Level_Security.sql) | Security - Multi-Tenancy Architecture & Row-Level Security (RLS) | 2026-11-19 | `Verified` |
 | [`Day030_Codds_Rules_Null_Logic_And_Set_Operations.sql`](daily/Day030_Codds_Rules_Null_Logic_And_Set_Operations.sql) | REC Unit I - Codd's Rules, Three-Valued NULL Logic & Set Operations | 2026-11-20 | `Verified` |
+| [`Day031_PLSQL_Procedures_Functions_And_Cursors.sql`](daily/Day031_PLSQL_Procedures_Functions_And_Cursors.sql) | REC Unit II - PL/SQL Procedures, Functions & Explicit Parameterized Cursors | 2026-11-21 | `Verified` |
 
 ---
 
